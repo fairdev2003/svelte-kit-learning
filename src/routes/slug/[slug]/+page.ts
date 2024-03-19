@@ -9,10 +9,9 @@ export async function load({ params }) {
 	const title = `Title for ${params.slug} goes here`
 
 	return {
-		post: {
-			title,
-			content,
-			data
-		}
+		slug: params.slug,
+		title,
+		content,
+		data
 	};
 }
