@@ -68,9 +68,9 @@
 </script>
 
 <main class="flex justify-center flex-col mt-5 items-center">
-    <h1 class="mb-5">TODO App</h1>
+    <h1 class="mb-5 select-none">TODO App</h1>
     <input on:focus={onFocus} placeholder="Add todo..." on:blur={onBlur} class="w-auto h-[50px] text-xl text-center" bind:value={input_value}/>
-    <div class="">
+    <div class="select-none">
         <button class="mt-5" on:click={addTodo}>Add todo</button>
         <button class="mt-5 " on:click={loadBasic}>Load todos</button>
         <button class="mt-5 " on:click={deleteAll}>Delete All</button>
