@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
 
 	/** @type {import('./$types').PageData} */
 	export let data: any;

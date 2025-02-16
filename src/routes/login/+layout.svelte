@@ -1,0 +1,4 @@
+
+<body>
+    <slot/>
+</body>
