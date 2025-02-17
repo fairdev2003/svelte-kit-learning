@@ -9,6 +9,7 @@
     let components: { component: typeof SvelteComponent, props: Record<string, any> }[]
     let error: string = "";
 
+
     onMount(async () => {
 
         if (!path) {
@@ -22,6 +23,7 @@
             parser.setMarkdownLines(markdown);
             parser.initializeMarkdownComponents(markdown);
             components = parser.getComponents();
+
         } else {
             error = "Invalid markdown path";
 

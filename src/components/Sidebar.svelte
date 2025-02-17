@@ -1,6 +1,16 @@
-<script>
-    import triangle from "../assets/svg/sidebar_triangle.svg"
+<script lang="ts">
+    import triangle from "../assets/svg/sidebar_triangle.svg";
+    import { onMount } from "svelte";
+
+    let fileNames: string[] = [];
+
+    onMount(async () => {
+        const response = await fetch("/api/files");
+        const data: { fileNames: string[] } = await response.json();
+        fileNames = data.fileNames;
+    });
 </script>
+
 
 <div class="sidebar absolute w-[3rem] h-full bg-black bg-opacity-80 flex px-3">
     <div class="sidebar-content w-full">
@@ -9,8 +19,18 @@
                 Welcome to Sistema
             </h2>
         </div>
-        <div class="flex flex-col">
-            s
+        <div class="sidebar-content flex flex-col">
+            {#if fileNames.length > 0}
+                {#each fileNames as fileName}
+                    <p on:click={() => {
+                        $: {
+                            // Update the URL without reloading the page
+                            history.replaceState({}, '', `/wiki/${fileName}`);
+                            location.reload();
+                        }
+                    }} class="w-full break-words overflow-hidden hover:text-blue cursor-pointer">{fileName}</p>
+                {/each}
+            {/if}
         </div>
     </div>
     <div class="flex items-center">

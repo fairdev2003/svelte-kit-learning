@@ -3,5 +3,5 @@
 </script>
 
 <section class="mx-20 my-10">
-    <MarkdownRenderer path="/src/md/test.md"/>
+    <MarkdownRenderer path="/wiki/wiki.md"/>
 </section>
